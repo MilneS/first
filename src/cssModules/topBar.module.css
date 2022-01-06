@@ -1,0 +1,9 @@
+.topBar {
+    background-color: black;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    line-height: 1.5;
+    font-weight: 500;
+    padding: 8px 0px;
+  }

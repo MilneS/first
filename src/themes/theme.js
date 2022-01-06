@@ -1,10 +1,10 @@
-import { createTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core";
 
 
-export const theme = createTheme({
-  myButton: {
-    fontSize: "20px",
-    textTransform: "capitalize",
-    backgroundColor: "#c72057",
-  },
-});
+export const theme: any = createTheme({
+    palette: {
+      primary: {
+        main: "#fff9e7",
+      },
+    },
+  });
