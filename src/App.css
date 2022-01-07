@@ -3,12 +3,14 @@ body{
 }
 
 
-/* header{
+ header{
+   display: flex;
+   align-items: center;
+   padding: 0px 140px;
   height:77px;
-  font-size: 14px;
-  border:1px solid red;
-  font-family: "Nunito Sans", -apple-system, Arial, sans-serif;
+  border-bottom:1px solid rgb(237, 218, 189);
 } 
+/*
 .headerLinks{
   font-family: "EB Garamond", "Nunito Sans", -apple-system, Arial, sans-serif;
   font-size: 1.6rem;

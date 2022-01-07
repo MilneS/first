@@ -1,67 +1,83 @@
-import {useState, SyntheticEvent} from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 
-interface TabPanelProps {
+interface StyledTabsProps {
   children?: React.ReactNode;
-  index: number;
   value: number;
+  onChange: (event: React.SyntheticEvent, newValue: number) => void;
 }
 
-const TabPanel=(props: TabPanelProps) =>{
-  const { children, value, index, ...other } = props;
+const StyledTabs = styled((props: StyledTabsProps) => (
+  <Tabs
+    {...props}
+    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+  />
+))({
+  "& .MuiTabs-indicator": {
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "transparent",
+  },
+  "& .MuiTabs-indicatorSpan": {
+    maxWidth: 60,
+    width: "100%",
+    backgroundColor: "#000",
+  },
+});
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
+interface StyledTabProps {
+  label: string;
 }
 
-const a11yProps=(index: number)=> {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
+const StyledTab = styled((props: StyledTabProps) => (
+  <Tab disableRipple {...props} />
+))(({ theme }) => ({
+  textTransform: "none",
+  fontWeight: 400,
+  fontSize: "16px",
+  marginRight: theme.spacing(1),
+  color: "#000",
+  fontFamily: "'EB Garamond', serif",
+  "&.Mui-selected": {
+    color: "#000",
+  },
+}));
+const StyledTabJournal = styled((props: StyledTabProps) => (
+  <Tab disableRipple {...props} />
+))(({ theme }) => ({
+  textTransform: "none",
+  fontStyle: "italic",
+  fontWeight: 400,
+  fontSize: "16px",
+  marginRight: theme.spacing(1),
+  color: "#000",
+  fontFamily: "'EB Garamond', serif",
+  "&.Mui-selected": {
+    color: "#000",
+  },
+}));
 
-export default function BasicTabs() {
-  const [value, setValue] = useState(0);
+export default function CustomizedTabs() {
+  const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, color: '#F3E4CD' }}>
-        <Tabs value={value} onChange={handleChange} >
-          <Tab label="Order" {...a11yProps(0)} />
-          <Tab label="Journal" {...a11yProps(1)} />
-          <Tab label="Maison Louis" {...a11yProps(2)} />
-        </Tabs>
+    <Box sx={{ width: "100%" }}>
+        <StyledTabs
+          value={value}
+          onChange={handleChange}
+          aria-label="styled tabs"
+        >
+          <StyledTab label="Order" />
+          <StyledTabJournal label="Journal" />
+          <StyledTab label="Maison Louis" />
+        </StyledTabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        Order Comp
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Journal Comp
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Maison Louis Comp
-      </TabPanel>
-    </Box>
   );
 }
