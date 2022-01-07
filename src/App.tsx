@@ -2,7 +2,7 @@ import "./App.css";
 import classes from "./cssModules/topBar.module.css";
 import { ThemeProvider } from "@mui/system";
 import { theme } from "./themes/theme";
-import Nav from "./comps/Nav";
+import Nav from "./comps/Navbar/Nav";
 
 function App() {
   return (
