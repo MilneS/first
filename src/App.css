@@ -1,15 +1,13 @@
-body{
-  background-color: #FFF8EF;;
+body {
+  background-color: #fff8ef;
 }
 
-
- header{
-   display: flex;
-   align-items: center;
-   padding: 0px 140px;
-  height:77px;
-  border-bottom:1px solid rgb(237, 218, 189);
-} 
+header {
+  display: flex;
+  padding: 0px 140px;
+  height: 77px;
+  border-bottom: 1px solid rgb(237, 218, 189);
+}
 /*
 .headerLinks{
   font-family: "EB Garamond", "Nunito Sans", -apple-system, Arial, sans-serif;

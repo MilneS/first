@@ -40,6 +40,7 @@ const StyledTab = styled((props: StyledTabProps) => (
   fontSize: "16px",
   marginRight: theme.spacing(1),
   color: "#000",
+  height:"77px",
   fontFamily: "'EB Garamond', serif",
   "&.Mui-selected": {
     color: "#000",
@@ -54,6 +55,7 @@ const StyledTabJournal = styled((props: StyledTabProps) => (
   fontSize: "16px",
   marginRight: theme.spacing(1),
   color: "#000",
+  height:"77px",
   fontFamily: "'EB Garamond', serif",
   "&.Mui-selected": {
     color: "#000",
@@ -68,8 +70,8 @@ export default function CustomizedTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-        <StyledTabs
+    <Box sx={{ width: "fit-content", height:"100%", justifyContent: "center" , alignItems: "center" }}>
+        <StyledTabs sx={{height:"77px"}}
           value={value}
           onChange={handleChange}
           aria-label="styled tabs"
