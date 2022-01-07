@@ -1,4 +1,5 @@
 import * as React from "react";
+import classes from "../cssModules/Nav.module.css"
 import { styled } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -40,7 +41,7 @@ const StyledTab = styled((props: StyledTabProps) => (
   fontSize: "16px",
   marginRight: theme.spacing(1),
   color: "#000",
-  height:"77px",
+  height: "77px",
   fontFamily: "'EB Garamond', serif",
   "&.Mui-selected": {
     color: "#000",
@@ -55,7 +56,7 @@ const StyledTabJournal = styled((props: StyledTabProps) => (
   fontSize: "16px",
   marginRight: theme.spacing(1),
   color: "#000",
-  height:"77px",
+  height: "77px",
   fontFamily: "'EB Garamond', serif",
   "&.Mui-selected": {
     color: "#000",
@@ -70,8 +71,13 @@ export default function CustomizedTabs() {
   };
 
   return (
-    <Box sx={{ width: "fit-content", height:"100%", justifyContent: "center" , alignItems: "center" }}>
-        <StyledTabs sx={{height:"77px"}}
+    <>
+      <Box
+        sx={{
+          width: "fit-content",
+        }}
+      >
+        <StyledTabs
           value={value}
           onChange={handleChange}
           aria-label="styled tabs"
@@ -81,5 +87,12 @@ export default function CustomizedTabs() {
           <StyledTab label="Maison Louis" />
         </StyledTabs>
       </Box>
+      <div className={classes.middleCont}>
+        <div>
+          <p className={classes.louis}>LOUIS</p>
+          <p className={classes.since}>Since 1889</p>
+        </div>
+      </div>
+    </>
   );
 }

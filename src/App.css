@@ -1,18 +1,13 @@
 body {
   background-color: #fff8ef;
+  font-family: "EB Garamond", serif;
+  color: #000;
 }
 
 header {
   display: flex;
-  padding: 0px 140px;
+  justify-content: center;
   height: 77px;
-  border-bottom: 1px solid rgb(237, 218, 189);
+  border-bottom: 1px solid #eddabd;
+  z-index: 1;
 }
-/*
-.headerLinks{
-  font-family: "EB Garamond", "Nunito Sans", -apple-system, Arial, sans-serif;
-  font-size: 1.6rem;
-  height: 100%;
-  color: #000;
-
-} */
