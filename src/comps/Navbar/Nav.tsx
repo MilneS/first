@@ -1,6 +1,7 @@
 import classes from "../../cssModules/Nav.module.css";
 import NavSearch from "./NavSearch";
 import NavLinks from "./NavLinks";
+import NavIcons from "./NavIcons";
 
 const Nav = () => {
   return (
@@ -15,6 +16,7 @@ const Nav = () => {
       <div className={classes.searchCont}>
         <NavSearch />
       </div>
+      <div><NavIcons/></div>
     </>
   );
 };

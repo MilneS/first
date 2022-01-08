@@ -1,9 +1,8 @@
 import classes from "../../cssModules/Nav.module.css";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import SearchRounded from "@material-ui/icons/SearchRounded";
 
-export default function BasicTextFields() {
+const NavSearch=()=> {
   return (
     <Box
       component="form"
@@ -25,3 +24,4 @@ export default function BasicTextFields() {
     </Box>
   );
 }
+export default NavSearch
