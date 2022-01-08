@@ -9,8 +9,8 @@ export default function BasicTextFields() {
       component="form"
       sx={{
         width: "26ch",
-        display:"flex",
-        alignItems:'center',
+        display: "flex",
+        alignItems: "center",
         border: "1px solid #eddabd",
         height: "55%",
       }}
@@ -19,7 +19,8 @@ export default function BasicTextFields() {
     >
       <div className={classes.search}>
         <SearchRounded />
-        <TextField id="search" label="Search" variant="filled"/>
+        <label htmlFor="search"/>
+        <input id="search" placeholder="Search" />
       </div>
     </Box>
   );

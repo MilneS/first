@@ -30,3 +30,8 @@
   padding-left: 10px;
   align-items: center;
 }
+input{
+  outline:unset;
+  border:none;
+  background-color: unset;
+}
