@@ -1,14 +1,16 @@
 import classes from "../../cssModules/Nav.module.css";
-import LocationOnOutlined from "@material-ui/icons/LocationOnOutlined";
-import PersonOutlined from "@material-ui/icons/PersonOutlined";
-import ShoppingBagOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
+import {
+  LocationOnOutlined,
+  PersonOutlined,
+  LocalMallOutlined,
+} from "@material-ui/icons";
 
 const NavIcons = () => {
   return (
     <div className={classes.NavIcons}>
       <LocationOnOutlined />
       <PersonOutlined />
-      <ShoppingBagOutlinedIcon />
+      <LocalMallOutlined />
     </div>
   );
 };
