@@ -41,7 +41,7 @@ input::placeholder {
 }
 .NavIcons {
   display: flex;
-  color:rgba(0, 0, 0, 0.800);
+  color: rgba(0, 0, 0, 0.8);
   flex-direction: row;
   align-items: center;
   height: 100%;
@@ -49,10 +49,12 @@ input::placeholder {
   justify-content: space-between;
   width: 135px;
   stroke: #fffcf8;
-stroke-width: 1px;
-
+  stroke-width: 1px;
 }
-
-.NavIcons>*{
-font-size: 32px !important;
+.NavIcons > * {
+  font-size: 32px !important;
+}
+.menus{
+  display: flex;
+  flex-direction: row;
 }

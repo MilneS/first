@@ -1,37 +1,13 @@
 import * as React from "react";
+import classes from '../../cssModules/Nav.module.css'
 import { styled } from "@mui/material/styles";
-import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const NavLinks = () => {
-  const [value, setValue] = React.useState(0);
-
-  interface StyledTabsProps {
-    children?: React.ReactNode;
-    value: number;
-    onChange: (event: React.SyntheticEvent, newValue: number) => void;
-  }
-
-  const StyledTabs = styled((props: StyledTabsProps) => (
-    <Tabs
-      {...props}
-      TabIndicatorProps={{
-        children: <span className="MuiTabs-indicatorSpan" />,
-      }}
-    />
-  ))({
-    "& .MuiTabs-indicator": {
-      display: "flex",
-      justifyContent: "center",
-      backgroundColor: "transparent",
-    },
-    "& .MuiTabs-indicatorSpan": {
-      maxWidth: "inherit",
-      width: "50%",
-      backgroundColor: "#000",
-    },
-  });
+  
 
   interface StyledTabProps {
     label: string;
@@ -53,8 +29,22 @@ const NavLinks = () => {
     },
   }));
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+
+  const [anchorEl1, setAnchorEl1] = React.useState<null | HTMLElement>(null);
+  const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null);
+  const open1 = Boolean(anchorEl1);
+  const open2 = Boolean(anchorEl2);
+  const handleClick1: any = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl1(event.currentTarget);
+    setAnchorEl2(null);
+  };
+  const handleClick2: any = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl1(null);
+    setAnchorEl2(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl1(null);
+    setAnchorEl2(null);
   };
 
   return (
@@ -64,15 +54,54 @@ const NavLinks = () => {
           width: "fit-content",
         }}
       >
-        <StyledTabs
-          value={value}
-          onChange={handleChange}
-          aria-label="styled tabs"
+        <div className={classes.menus}>
+        <div
+          id="basic-button"
+          aria-controls={open1 ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open1 ? "true" : undefined}
+          onClick={handleClick1}
         >
-          <StyledTab label="Order" />
-          <StyledTab sx={{ fontStyle: "italic" }} label="Journal" />
-          <StyledTab label="Maison LOUIS" />
-        </StyledTabs>
+          <StyledTab label="Order" sx={{ opacity: 1 }}/>
+        </div>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl1}
+          open={open1}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+        >
+          <MenuItem onClick={handleClose}>Bakery</MenuItem>
+          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem onClick={handleClose}>Logout</MenuItem>
+        </Menu>
+        <div>
+          <StyledTab sx={{ fontStyle: "italic", opacity: 1 }} label="News" />
+        </div>
+        <div
+          id="basic"
+          aria-controls={open2 ? "menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open2 ? "true" : undefined}
+          onClick={handleClick2}
+        >
+          <StyledTab label="Maison LOUIS"  sx={{ opacity: 1 }}/>
+        </div>
+        <Menu
+          id="menu"
+          anchorEl={anchorEl2}
+          open={open2}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic",
+          }}
+        >
+          <MenuItem onClick={handleClose}>Our story</MenuItem>
+          <MenuItem onClick={handleClose}>Social Responsibility</MenuItem>
+        </Menu>
+        </div>
       </Box>
     </>
   );
