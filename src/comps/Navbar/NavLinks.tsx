@@ -1,5 +1,5 @@
 import * as React from "react";
-import classes from '../../cssModules/Nav.module.css'
+import classes from "../../cssModules/Nav.module.css";
 import { styled } from "@mui/material/styles";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -7,8 +7,6 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 const NavLinks = () => {
-  
-
   interface StyledTabProps {
     label: string;
   }
@@ -28,7 +26,6 @@ const NavLinks = () => {
       color: "#000",
     },
   }));
-
 
   const [anchorEl1, setAnchorEl1] = React.useState<null | HTMLElement>(null);
   const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null);
@@ -55,52 +52,52 @@ const NavLinks = () => {
         }}
       >
         <div className={classes.menus}>
-        <div
-          id="basic-button"
-          aria-controls={open1 ? "basic-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open1 ? "true" : undefined}
-          onClick={handleClick1}
-        >
-          <StyledTab label="Order" sx={{ opacity: 1 }}/>
-        </div>
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl1}
-          open={open1}
-          onClose={handleClose}
-          MenuListProps={{
-            "aria-labelledby": "basic-button",
-          }}
-        >
-          <MenuItem onClick={handleClose}>Bakery</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
-        <div>
-          <StyledTab sx={{ fontStyle: "italic", opacity: 1 }} label="News" />
-        </div>
-        <div
-          id="basic"
-          aria-controls={open2 ? "menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open2 ? "true" : undefined}
-          onClick={handleClick2}
-        >
-          <StyledTab label="Maison LOUIS"  sx={{ opacity: 1 }}/>
-        </div>
-        <Menu
-          id="menu"
-          anchorEl={anchorEl2}
-          open={open2}
-          onClose={handleClose}
-          MenuListProps={{
-            "aria-labelledby": "basic",
-          }}
-        >
-          <MenuItem onClick={handleClose}>Our story</MenuItem>
-          <MenuItem onClick={handleClose}>Social Responsibility</MenuItem>
-        </Menu>
+          <div
+            id="order"
+            aria-controls={open1 ? "order-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open1 ? "true" : undefined}
+            onClick={handleClick1}
+          >
+            <StyledTab label="Order" sx={{ opacity: 1 }} />
+          </div>
+          <Menu
+            id="order-menu"
+            anchorEl={anchorEl1}
+            open={open1}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "order",
+            }}
+          >
+            <MenuItem onClick={handleClose}>Bakery</MenuItem>
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          </Menu>
+          <div>
+            <StyledTab sx={{ fontStyle: "italic", opacity: 1 }} label="News" />
+          </div>
+          <div
+            id="maison"
+            aria-controls={open2 ? "maison-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open2 ? "true" : undefined}
+            onClick={handleClick2}
+          >
+            <StyledTab label="Maison LOUIS" sx={{ opacity: 1 }} />
+          </div>
+          <Menu
+            id="maison-menu"
+            anchorEl={anchorEl2}
+            open={open2}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "maison",
+            }}
+          >
+            <MenuItem onClick={handleClose}>Our story</MenuItem>
+            <MenuItem onClick={handleClose}>Social Responsibility</MenuItem>
+          </Menu>
         </div>
       </Box>
     </>
