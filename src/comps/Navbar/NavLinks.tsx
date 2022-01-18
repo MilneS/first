@@ -45,7 +45,7 @@ const NavLinks = () => {
   };
 
   return (
-    <>
+      <>
       <Box
         sx={{
           width: "fit-content",
@@ -77,6 +77,7 @@ const NavLinks = () => {
           <div>
             <StyledTab sx={{ fontStyle: "italic", opacity: 1 }} label="News" />
           </div>
+
           <div
             id="maison"
             aria-controls={open2 ? "maison-menu" : undefined}
