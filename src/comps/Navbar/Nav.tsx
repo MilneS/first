@@ -1,6 +1,6 @@
 import classes from "../../cssModules/Nav.module.css";
 import NavSearch from "./NavSearch";
-import NavLinks from "./NavLinks";
+import NavLinks from "./NavLink";
 import NavIcons from "./NavIcons";
 
 const Nav = () => {

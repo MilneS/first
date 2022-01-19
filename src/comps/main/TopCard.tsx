@@ -13,6 +13,7 @@ const TopCard = () => {
         </Grid>
         <Grid
           item
+          
           xs={6}
           sx={{
             backgroundColor: "#F3E4CD",
