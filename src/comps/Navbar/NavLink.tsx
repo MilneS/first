@@ -1,68 +1,103 @@
 import * as React from "react";
-// import classes from "../../cssModules/Nav.module.css";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
 import Menu from "@mui/material/Menu";
+import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
 const NavLinks = () => {
-  const [value, setValue] = React.useState("1");
+  const [anchorElOrder, setAnchorElOrder] = React.useState<null | HTMLElement>(
+    null
+  );
+  const [anchorElMaison, setAnchorElMaison] =
+    React.useState<null | HTMLElement>(null);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
+  const openOrderMenu = Boolean(anchorElOrder);
+  const openMaisonMenu = Boolean(anchorElMaison);
+
+  const handleClickOrder = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElOrder(event.currentTarget);
   };
-  const [showOrder, setShowOrder] = React.useState<boolean>(false)
-  const [showMaison, setShowMaison] = React.useState<boolean>(false)
-
+  const handleClickMaison = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElMaison(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorElOrder(null);
+    setAnchorElMaison(null);
+  };
 
   return (
     <>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        aria-label="wrapped label tabs example"
-        textColor="secondary"
-        indicatorColor="secondary"
-        sx={{ display: "flex", alignItems: "center" }}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "300px",
+        }}
       >
-        <Tab
-          disableRipple
-          value="one"
-          label="Order"
-          id='Order'
+        <Button
+          id="order-button"
+          aria-controls={openOrderMenu ? "order-menu" : undefined}
+          onMouseEnter={(e) => handleClickOrder(e)}
+          // onMouseLeave={() => }
+          color="secondary"
           sx={{
+            fontSize: "17px",
+            letterSpacing: "-0.5px",
             textTransform: "capitalize",
-            color: "#000",
-            ":hover": {
-              ".menus": { display: "block" },
-            },
+            height: "75px",
+            ":hover": { borderRadius: "0px", borderBottom: "2px solid black" },
           }}
-          onMouseEnter={() => setShowOrder(true)}
-          onMouseLeave={() => setShowOrder(false)}
-        />
-       { showOrder &&<div>hi</div>}
-
-        <Tab
-          disableRipple
-          value="two"
-          label="News"
+        >
+          Order
+        </Button>
+        <Menu
+          anchorEl={anchorElOrder}
+          open={openOrderMenu}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>Bakery</MenuItem>
+          <MenuItem onClick={handleClose}>Catering</MenuItem>
+          <MenuItem onClick={handleClose}>Specialties</MenuItem>
+        </Menu>
+        <Button
+          // onClick={}
+          color="secondary"
           sx={{
+            letterSpacing: "-0.6px",
+            fontSize: "17px",
             textTransform: "capitalize",
             fontStyle: "italic",
-            color: "#000",
+            height: "75px",
+            ":hover": { borderRadius: "0px", borderBottom: "2px solid black" },
           }}
-        />
-        <Tab
-          disableRipple
-          value="three"
-          label="Maison LOUIS"
-          sx={{ textTransform: "capitalize", color: "#000" }}
-          onMouseEnter={() => setShowMaison(true)}
-          onMouseLeave={() => setShowMaison(false)}
-
-        />
-        { showMaison && <div>Maison</div> }
-      </Tabs>
+        >
+          News
+        </Button>
+        <Button
+          aria-controls={openMaisonMenu ? "maison-menu" : undefined}
+          onMouseEnter={(e) => handleClickMaison(e)}
+          // onMouseLeave={() => }
+          color="secondary"
+          sx={{
+            letterSpacing: "-0.5px",
+            fontSize: "17px",
+            textTransform: "capitalize",
+            height: "75px",
+            ":hover": { borderRadius: "0px", borderBottom: "2px solid black" },
+          }}
+        >
+          Maison LOUIS
+        </Button>
+        <Menu
+          id="maison-menu"
+          anchorEl={anchorElMaison}
+          open={openMaisonMenu}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>Our story</MenuItem>
+          <MenuItem onClick={handleClose}>Social responsibility</MenuItem>
+        </Menu>
+      </div>
     </>
   );
 };

@@ -27,7 +27,7 @@ const TopCard = () => {
             component="h1"
             sx={{ fontWeight: "600", letterSpacing: "0.8px" }}
           >
-            <Box padding={1}>Check out our pastries</Box>
+            <Box padding={1}>Craving croissants?</Box>
           </Typography>
           <Typography variant="h6" component="h2">
             <Box padding={1}>Which one will you to pick?</Box>
